@@ -129,41 +129,63 @@ void showQuitScreen()
 
 void snakeieLogo()                                  // Draws snake logo for main menu
 {
-    // S letter
-    fillRect(11, 5, 4, 1, FG_DARK_YELLOW);
-    fillRect(11, 6, 1, 2, FG_DARK_YELLOW);
-    fillRect(11, 8, 4, 1, FG_DARK_YELLOW);
-    fillRect(11, 9, 4, 1, FG_DARK_YELLOW);
-    fillRect(11, 12, 4, 1, FG_DARK_YELLOW);
-    fillRect(14, 10, 1, 2, FG_DARK_YELLOW);
-    // N letter
-    fillRect(16, 5, 1, 8, FG_DARK_YELLOW);
-    fillRect(17, 5, 1, 3, FG_DARK_YELLOW);
-    fillRect(18, 8, 1, 2, FG_DARK_YELLOW);
-    fillRect(19, 10, 1, 3, FG_DARK_YELLOW);
-    fillRect(20, 5, 1, 8, FG_DARK_YELLOW);
-    // A letter
-    fillRect(22, 5, 1, 8, FG_DARK_YELLOW);
-    fillRect(23, 5, 2, 1, FG_DARK_YELLOW);
-    fillRect(22, 8, 3, 1, FG_DARK_YELLOW);
-    fillRect(25, 5, 1, 8, FG_DARK_YELLOW);
-    // K letter
-    fillRect(27, 5, 1, 8, FG_DARK_YELLOW);
-    fillRect(28, 8, 1, 2, FG_DARK_YELLOW);
-    fillRect(28, 8, 1, 2, FG_DARK_YELLOW);
-    drawPixel(29, 7, FG_DARK_YELLOW);
-    drawPixel(29, 10, FG_DARK_YELLOW);
-    drawPixel(30, 6, FG_DARK_YELLOW);
-    drawPixel(30, 11, FG_DARK_YELLOW);
-    drawPixel(31, 5, FG_DARK_YELLOW);
-    drawPixel(31, 12, FG_DARK_YELLOW);
-    // I letter
-    fillRect(33, 5, 1, 8, FG_DARK_YELLOW);
-    // E letter
-    fillRect(35, 5, 1, 8, FG_DARK_YELLOW);
-    fillRect(36, 5, 3, 1, FG_DARK_YELLOW);
-    fillRect(36, 8, 3, 1, FG_DARK_YELLOW);
-    fillRect(36, 12, 3, 1, FG_DARK_YELLOW);
+    // X letter
+    fillRect(11, 5, 1, 1, FG_DARK_YELLOW);
+    fillRect(12, 6, 1, 1, FG_DARK_YELLOW);
+    fillRect(13, 7, 1, 1, FG_DARK_YELLOW);
+    fillRect(14, 8, 1, 1, FG_DARK_YELLOW);
+    fillRect(15, 9, 1, 1, FG_DARK_YELLOW);
+    fillRect(16, 10, 1, 1, FG_DARK_YELLOW);
+    fillRect(17, 11, 1, 1, FG_DARK_YELLOW);
+    fillRect(18, 12, 1, 1, FG_DARK_YELLOW);
+
+    fillRect(11, 12, 1, 1, FG_DARK_YELLOW);
+    fillRect(12, 11, 1, 1, FG_DARK_YELLOW);
+    fillRect(13, 10, 1, 1, FG_DARK_YELLOW);
+    fillRect(14, 9, 1, 1, FG_DARK_YELLOW);
+    fillRect(15, 8, 1, 1, FG_DARK_YELLOW);
+    fillRect(16, 7, 1, 1, FG_DARK_YELLOW);
+    fillRect(17, 6, 1, 1, FG_DARK_YELLOW);
+    fillRect(18, 5, 1, 1, FG_DARK_YELLOW);
+
+    fillRect(34, 5, 1, 1, FG_DARK_YELLOW);
+    fillRect(35, 6, 1, 1, FG_DARK_YELLOW);
+    fillRect(36, 7, 1, 1, FG_DARK_YELLOW);
+    fillRect(37, 8, 1, 1, FG_DARK_YELLOW);
+    fillRect(38, 9, 1, 1, FG_DARK_YELLOW);
+    fillRect(39, 10, 1, 1, FG_DARK_YELLOW);
+    fillRect(40, 11, 1, 1, FG_DARK_YELLOW);
+    fillRect(41, 12, 1, 1, FG_DARK_YELLOW);
+
+    fillRect(32, 12, 1, 1, FG_DARK_YELLOW);
+    fillRect(33, 11, 1, 1, FG_DARK_YELLOW);
+    fillRect(34, 10, 1, 1, FG_DARK_YELLOW);
+    fillRect(35, 9, 1, 1, FG_DARK_YELLOW);
+    fillRect(36, 8, 1, 1, FG_DARK_YELLOW);
+    fillRect(37, 7, 1, 1, FG_DARK_YELLOW);
+    fillRect(38, 6, 1, 1, FG_DARK_YELLOW);
+    fillRect(39, 5, 1, 1, FG_DARK_YELLOW);
+
+    // O letter
+    fillRect(22, 8, 1, 1, FG_DARK_YELLOW);
+    fillRect(22, 9, 1, 1, FG_DARK_YELLOW);
+    fillRect(23, 7, 1, 1, FG_DARK_YELLOW);
+    fillRect(24, 6, 1, 1, FG_DARK_YELLOW);
+    fillRect(25, 5, 1, 1, FG_DARK_YELLOW);
+    fillRect(26, 5, 1, 1, FG_DARK_YELLOW);
+    fillRect(27, 5, 1, 1, FG_DARK_YELLOW);
+    fillRect(28, 6, 1, 1, FG_DARK_YELLOW);
+    fillRect(29, 7, 1, 1, FG_DARK_YELLOW);
+    fillRect(30, 8, 1, 1, FG_DARK_YELLOW);
+    fillRect(30, 9, 1, 1, FG_DARK_YELLOW);
+    fillRect(29, 10, 1, 1, FG_DARK_YELLOW);
+    fillRect(28, 11, 1, 1, FG_DARK_YELLOW);
+    fillRect(27, 12, 1, 1, FG_DARK_YELLOW);
+    fillRect(26, 12, 1, 1, FG_DARK_YELLOW);
+    fillRect(25, 12, 1, 1, FG_DARK_YELLOW);
+    fillRect(24, 11, 1, 1, FG_DARK_YELLOW);
+    fillRect(23, 10, 1, 1, FG_DARK_YELLOW);
+
     // underline
     fillRect(0, 15, 1, 1, FG_WHITE);
     fillRect(2, 15, 3, 1, FG_WHITE);
