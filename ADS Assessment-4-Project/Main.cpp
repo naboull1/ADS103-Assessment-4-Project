@@ -148,23 +148,25 @@ void snakeieLogo()                                  // Draws snake logo for main
     fillRect(17, 6, 1, 1, FG_DARK_YELLOW);
     fillRect(18, 5, 1, 1, FG_DARK_YELLOW);
 
-    fillRect(34, 5, 1, 1, FG_DARK_YELLOW);
-    fillRect(35, 6, 1, 1, FG_DARK_YELLOW);
-    fillRect(36, 7, 1, 1, FG_DARK_YELLOW);
-    fillRect(37, 8, 1, 1, FG_DARK_YELLOW);
-    fillRect(38, 9, 1, 1, FG_DARK_YELLOW);
-    fillRect(39, 10, 1, 1, FG_DARK_YELLOW);
-    fillRect(40, 11, 1, 1, FG_DARK_YELLOW);
-    fillRect(41, 12, 1, 1, FG_DARK_YELLOW);
-
-    fillRect(32, 12, 1, 1, FG_DARK_YELLOW);
-    fillRect(33, 11, 1, 1, FG_DARK_YELLOW);
-    fillRect(34, 10, 1, 1, FG_DARK_YELLOW);
-    fillRect(35, 9, 1, 1, FG_DARK_YELLOW);
+    fillRect(33, 5, 1, 1, FG_DARK_YELLOW);
+    fillRect(34, 6, 1, 1, FG_DARK_YELLOW);
+    fillRect(35, 7, 1, 1, FG_DARK_YELLOW);
     fillRect(36, 8, 1, 1, FG_DARK_YELLOW);
-    fillRect(37, 7, 1, 1, FG_DARK_YELLOW);
-    fillRect(38, 6, 1, 1, FG_DARK_YELLOW);
-    fillRect(39, 5, 1, 1, FG_DARK_YELLOW);
+    fillRect(37, 9, 1, 1, FG_DARK_YELLOW);
+    fillRect(38, 10, 1, 1, FG_DARK_YELLOW);
+    fillRect(39, 11, 1, 1, FG_DARK_YELLOW);
+    fillRect(40, 12, 1, 1, FG_DARK_YELLOW);
+
+    fillRect(33, 12, 1, 1, FG_DARK_YELLOW);
+    fillRect(34, 11, 1, 1, FG_DARK_YELLOW);
+    fillRect(35, 10, 1, 1, FG_DARK_YELLOW);
+    fillRect(36, 9, 1, 1, FG_DARK_YELLOW);
+    fillRect(37, 8, 1, 1, FG_DARK_YELLOW);
+    fillRect(38, 7, 1, 1, FG_DARK_YELLOW);
+    fillRect(39, 6, 1, 1, FG_DARK_YELLOW);
+    fillRect(40, 5, 1, 1, FG_DARK_YELLOW);
+
+
 
     // O letter
     fillRect(22, 8, 1, 1, FG_DARK_YELLOW);
@@ -380,21 +382,16 @@ int showMenu()                                                                  
         textpixels::startFrame();                                                                                 // starts Frame window to enable drawing
         fillWindow(BG_DARK_YELLOW);
         fillRect(1, 1, windowWidth() - 2, windowHeight() - 2, BG_DARK_GREY);
-        drawString(13, 20, "CHOOSE YOUR DIFFICULTY", layerColours(FG_WHITE, BG_BLACK));
+        drawString(13, 20, "CHOOSE YOUR PLAY STYLE", layerColours(FG_WHITE, BG_BLACK));
         drawString(4, 27, "1", layerColours(FG_WHITE, BG_BLACK));
-        drawString(5, 27, "  -       peasy lemon squeezy", layerColours(FG_DARK_YELLOW, BG_BLACK));
-        drawString(10, 27, "Easy", layerColours(FG_WHITE, BG_BLACK));
+        drawString(5, 27, "  -   Player VS Player", layerColours(FG_DARK_YELLOW, BG_BLACK));
         drawString(4, 29, "2", layerColours(FG_WHITE, BG_BLACK));
-        drawString(5, 29, "  - Do you like your snakes        rare?", layerColours(FG_DARK_YELLOW, BG_BLACK));
-        drawString(33, 29, "medium", layerColours(FG_WHITE, BG_BLACK));
+        drawString(5, 29, "  -   Player VS Cortana", layerColours(FG_DARK_YELLOW, BG_BLACK));
         drawString(4, 31, "3", layerColours(FG_WHITE, BG_BLACK));
-        drawString(5, 31, "  - Ready to enter the      snake pit?", layerColours(FG_DARK_YELLOW, BG_BLACK));
-        drawString(28, 31, "hard", layerColours(FG_WHITE, BG_BLACK));
-        drawString(4, 33, "4", layerColours(FG_WHITE, BG_BLACK));
-        drawString(5, 33, "  - Game Guide ", layerColours(FG_DARK_YELLOW, BG_BLACK));
-        drawString(7, 35, "- if your scared of snake pits", layerColours(FG_DARK_YELLOW, BG_BLACK));
-        drawString(4, 35, "Q", layerColours(FG_WHITE, BG_BLACK));
-        drawString(7, 45, " - Highest Score : " + to_string(HighScores), layerColours(FG_DARK_YELLOW, BG_BLACK));
+        drawString(5, 31, "  -   See Cortana's Scores", layerColours(FG_DARK_YELLOW, BG_BLACK));
+        drawString(7, 33, "- If you want to take the cowards way out!", layerColours(FG_DARK_YELLOW, BG_BLACK));
+        drawString(4, 33, "Q", layerColours(FG_WHITE, BG_BLACK));
+        drawString(7, 40, " - Highest Score : " + to_string(HighScores), layerColours(FG_DARK_YELLOW, BG_BLACK));
 
 
 
