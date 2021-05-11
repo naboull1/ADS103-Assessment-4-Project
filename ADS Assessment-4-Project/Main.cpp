@@ -1,5 +1,9 @@
 #include <iostream>
 #include <windows.h>
+#include <fstream>									//Library for File System control
+#include <chrono>									//Library for Time Control
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 
@@ -25,7 +29,6 @@ int showHomeMenuPrompt()
 
     cout << " 1: Play against a foe\n 2: Play against Cortana\n 3: Check Scores\n 4: Take the cowards way out\n\n";
     cout << "\t Enter your Choice > ";
-    cin >> choice;
     return choice;
 }
 
@@ -33,9 +36,10 @@ int showHomeMenuPrompt()
 //store characters for input
 char square[10] = { 'o','q','w','e','a','s','d','z','x','c' };
 
-//Global variables 
+//Global functions 
 int isWinner();
 void background();
+
 
 
 //Master function handling the player control and board letter switching
@@ -45,6 +49,8 @@ int main()
     int menuChoice = NO_CHOICE;
     char player = 1, i, choice;
     char mark;
+    int maxTime = 300;
+    double time_spent = 0.0;
 
 
     while (menuChoice != QUIT)      // Add check: player isnt broke
@@ -57,17 +63,30 @@ int main()
             {
                 background();
                 player = (player % 2) ? 1 : 2;
+                //start time 
+                std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
-
-
-                cout << "\nif you want to surrender hit ESCAPE\n";
-                cout << "if you wanna instant rematch hit R\n";
+                cout << "BTW your on the clock, tic tok, tic tok\n\n";
+                cout << "\nif you want to surrender hit ESCAPE\n\n";
+                cout << "if you wanna instant rematch hit R\n\n";
                 cout << "Player " << player << ", enter the letter you want to place:  ";
 
 
-                cin >> choice;
+                std::cin >> choice ;
+
+
+                //end time and output MS
+                std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+                cout << "Milliseconds = " << chrono::duration_cast<chrono::milliseconds>(end - begin).count() << "[ms]" << endl;
 
                 mark = (player == 1) ? 'X' : 'O';
+
+                //////cant get time working\\\\\\\\\
+                //if ((end.time_since_epoch() - begin.time_since_epoch()) == maxTime)
+                //{
+                //    cout << "BTW your on the clock, tic tok, tic tok\n\n";
+                //}
+
 
                 if (choice == 'q' && square[1] == 'q')
                     square[1] = mark;
@@ -98,8 +117,8 @@ int main()
                 {
                     cout << "Thats not gonna work, Try Again";
                     player--;
-                    cin.ignore();
-                    cin.get();
+                    std::cin.ignore();
+                    std::cin.get();
                 }
                 i = isWinner();
 
@@ -113,8 +132,8 @@ int main()
             else
                 cout << "==>\aGame draw";
 
-            cin.ignore();
-            cin.get();
+            std::cin.ignore();
+            std::cin.get();
             return 0;
         }
 
