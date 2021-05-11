@@ -2,6 +2,32 @@
 using namespace std;
 
 
+// Constants for home menu
+enum HomeMenuChoices
+{
+    PLAYVSPLAY = 1,
+    PLAYVSCOM = 2,
+    SCORES = 3,
+    QUIT = 4,
+    NO_CHOICE
+};
+
+// Input is player's choice. Output is true (valid) or false (invalid)
+bool isValidChoice(int menuChoice)
+{
+    return (menuChoice > 0 && menuChoice < NO_CHOICE);
+}
+
+int showHomeMenuPrompt()
+{
+    int choice = -1;
+
+    cout << " 1: Play against a foe\n 2: Play against Cortana\n  3: Check Scores\n 4: Take the cowards way out\n\n";
+    cout << "\t Enter your Choice > ";
+    cin >> choice;
+    return choice;
+}
+
 
 //store characters for input
 char square[10] = { 'o','q','w','e','a','s','d','z','x','c' };
@@ -14,6 +40,46 @@ void background();
 //Master function handling the player control and board letter switching
 int main()
 {
+
+    int menuChoice = NO_CHOICE;
+
+
+    while (menuChoice != QUIT)      // Add check: player isnt broke
+    {
+        menuChoice = showHomeMenuPrompt();  // Offer starting menu
+
+        if (menuChoice == PLAYVSPLAY)
+        {
+
+
+        }
+
+
+        if (menuChoice == PLAYVSCOM)
+        {
+
+
+        }
+
+
+        if (menuChoice == SCORES)
+        {
+
+
+        }
+
+
+        if (menuChoice == QUIT)
+        {
+            return 0;
+        }
+    }
+
+
+
+
+
+
     char player = 1, i, choice;
 
     char mark;
