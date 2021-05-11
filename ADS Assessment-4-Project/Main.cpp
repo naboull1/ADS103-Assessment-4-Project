@@ -34,10 +34,28 @@ int showHomeMenuPrompt()
 }
 
 
+
+
+
+
 //store characters for input
 char square[10] = { 'o','q','w','e','a','s','d','z','x','c' };
 
-//Global variables 
+void resetArray()
+{
+    square[0] = 'o';
+    square[1] = 'q';
+    square[2] = 'w';
+    square[3] = 'e';
+    square[4] = 'a';
+    square[5] = 's';
+    square[6] = 'd';
+    square[7] = 'z';
+    square[8] = 'x';
+    square[9] = 'c';
+}
+
+//Global functions
 int isWinner();
 void background();
 
@@ -109,9 +127,13 @@ int main()
                 else if (choice == 'c' && square[9] == 'c')
                     square[9] = mark;
                 else if (choice == VK_ESCAPE)
-                    return(0);
+                {
+                    exit(3);
+                    return 3;
+                }
                 else if (choice == 'r')
                 {
+                    resetArray();
                     system("cls");
                     main();
                 }
@@ -130,14 +152,27 @@ int main()
             }             while (i == -1);
             background();
             if (i == 1)
-
+            {
                 cout << "==>\aPlayer " << --playerName << " win ";
+                ofstream outfile;
+
+                outfile.open("ScoreCount.txt", ios_base::app);
+                outfile << "\nplayer " << playerName << "  Gets 1 point";
+                outfile.close();
+
+                resetArray();
+                cin.ignore();
+                cin.get();
+                system("cls");
+                main();
+            }
             else
                 cout << "==>\aGame draw";
-
-            cin.ignore();
-            cin.get();
-            return 0;
+                resetArray();
+                cin.ignore();
+                cin.get();
+                system("cls");
+                main();
         }
 
 
@@ -145,39 +180,45 @@ int main()
 
         if (menuChoice == PLAYVSCOM)
         {
-
-
+            cout << "\n\n\ncoming soon\n\n\n";
+            //unable to implement :(
         }
 
 
         if (menuChoice == SCORES)
         {
+            string firstLineVariable;
 
+            ifstream readFile;
+            readFile.open("ScoreCount.txt");
+            
+            cout << "List all SCORES:\n\n\n";
 
+            ifstream myfile("ScoreCount.txt");
+            if (myfile.is_open())
+            {
+                while (getline(myfile, firstLineVariable))
+                {
+                    cout << firstLineVariable << '\n';
+                }
+                myfile.close();
+            }
+
+            else 
+            cout << "No Scores to show";
+            cin.ignore();
+            cin.get();
+            system("cls");
         }
 
 
         if (menuChoice == QUIT)
         {
-            return 0;
+            exit(3);
+            return 3;
         }
     }
 }
-
-
-
-
-
-
-
-
-
-/*********************************************
-    FUNCTION TO RETURN GAME STATUS
-    1 FOR GAME IS OVER WITH RESULT
-    -1 FOR GAME IS IN PROGRESS
-    O GAME IS OVER AND NO RESULT
-**********************************************/
 
 int isWinner()
 {
@@ -215,11 +256,6 @@ int isWinner()
 }
 
 
-/*******************************************************************
-     FUNCTION TO DRAW BOARD OF TIC TAC TOE WITH PLAYERS MARK
-********************************************************************/
-
-
 void background()
 {
     system("cls");
@@ -228,23 +264,20 @@ void background()
     cout << "PLAYER 1 IS X  -  PLAYER 2 IS 0 " << endl << endl;
     cout << endl;
 
-    cout << "     |     |     " << endl;
-    cout << "  " << square[1] << "  |  " << square[2] << "  |  " << square[3] << endl;
+    cout << "                 |     |     " << endl;
+    cout << "              " << square[1] << "  |  " << square[2] << "  |  " << square[3] << endl;
 
-    cout << "_____|_____|_____" << endl;
-    cout << "     |     |     " << endl;
+    cout << "            _____|_____|_____" << endl;
+    cout << "                 |     |     " << endl;
 
-    cout << "  " << square[4] << "  |  " << square[5] << "  |  " << square[6] << endl;
+    cout << "              " << square[4] << "  |  " << square[5] << "  |  " << square[6] << endl;
 
-    cout << "_____|_____|_____" << endl;
-    cout << "     |     |     " << endl;
+    cout << "            _____|_____|_____" << endl;
+    cout << "                 |     |     " << endl;
 
-    cout << "  " << square[7] << "  |  " << square[8] << "  |  " << square[9] << endl;
+    cout << "              " << square[7] << "  |  " << square[8] << "  |  " << square[9] << endl;
 
-    cout << "     |     |     " << endl << endl;
+    cout << "                 |     |     " << endl << endl;
 }
-
-/*******************************************************************
-                END OF PROJECT
-********************************************************************/
+            
 
