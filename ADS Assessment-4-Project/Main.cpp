@@ -47,6 +47,7 @@ char board[3][3] = { {'1','2','3'},{'4','5','6'},{'7','8','9'} };
 bool playerHasQuit = false;
 int score = 0;
 char choiceinput='q';
+char currentPlayer = 'X';
 
 
 
@@ -87,6 +88,7 @@ void drawGameInterface() // creates game background showing help, fps and score
     fillRect(1, 1, windowWidth() - 2, windowHeight() - 2, FG_DARK_YELLOW);
     drawString(2, 0, "Press letter  or (ESCAPE) to exit", layerColours(FG_YELLOW, BG_BLACK));
     drawString(12, windowHeight() - 1, "Score: " + to_string(getScore), layerColours(FG_YELLOW, BG_BLACK));
+    drawString(25, windowHeight() - 1, "Player is: " + currentPlayer, layerColours(FG_YELLOW, BG_BLACK));
 }
 
 //int gameGuideInterface() // Displays the game guide screen identifying the different elements of the game
@@ -438,7 +440,7 @@ int showMenu()                                                                  
 
 
                                                                                                                              // key options for input
-        if (keyIsDown('P'))
+        if (keyIsDown(VK_SPACE))
         {
             choice = EASY;
             //currentGameMode = 2;
@@ -782,336 +784,15 @@ int wallDraw()                              //This Functon draws the obstacles t
     fillRect(obstacle[2].x, obstacle[2].y, obstacle[2].obstacleWidth, obstacle[2].obstacleHeight, obstacle[2].colour);
     fillRect(obstacle[3].x, obstacle[3].y, obstacle[3].obstacleWidth, obstacle[3].obstacleHeight, obstacle[3].colour);
 
-    drawString(15, 15, "Q", layerColours(FG_WHITE, BG_DARK_BLUE));
-    drawString(31, 15, "W", layerColours(FG_WHITE, BG_DARK_BLUE));
-    drawString(48, 15, "E", layerColours(FG_WHITE, BG_DARK_BLUE));
-    drawString(15, 31, "A", layerColours(FG_WHITE, BG_DARK_BLUE));
-    drawString(31, 31, "S", layerColours(FG_WHITE, BG_DARK_BLUE));
-    drawString(48, 31, "D", layerColours(FG_WHITE, BG_DARK_BLUE));
-    drawString(15, 48, "Z", layerColours(FG_WHITE, BG_DARK_BLUE));
-    drawString(31, 48, "X", layerColours(FG_WHITE, BG_DARK_BLUE));
-    drawString(48, 48, "C", layerColours(FG_WHITE, BG_DARK_BLUE));
-
-    //TEMP MOVE TO IF STATEWMENT LATER
-
-
-
-
-
-    //// X letter e section
-    //fillRect(37, 5, 1, 1, FG_DARK_GREY);
-    //fillRect(38, 6, 1, 1, FG_DARK_GREY);
-    //fillRect(39, 7, 1, 1, FG_DARK_GREY);
-    //fillRect(40, 8, 1, 1, FG_DARK_GREY);
-    //fillRect(41, 9, 1, 1, FG_DARK_GREY);
-    //fillRect(42, 10, 1, 1, FG_DARK_GREY);
-    //fillRect(43, 11, 1, 1, FG_DARK_GREY);
-    //fillRect(44, 12, 1, 1, FG_DARK_GREY);
-
-    //fillRect(37, 12, 1, 1, FG_DARK_GREY);
-    //fillRect(38, 11, 1, 1, FG_DARK_GREY);
-    //fillRect(39, 10, 1, 1, FG_DARK_GREY);
-    //fillRect(40, 9, 1, 1, FG_DARK_GREY);
-    //fillRect(41, 8, 1, 1, FG_DARK_GREY);
-    //fillRect(42, 7, 1, 1, FG_DARK_GREY);
-    //fillRect(43, 6, 1, 1, FG_DARK_GREY);
-    //fillRect(44, 5, 1, 1, FG_DARK_GREY);
-
-
-    //// X letter a section
-    //fillRect(5, 21, 1, 1, FG_DARK_GREY);
-    //fillRect(6, 22, 1, 1, FG_DARK_GREY);
-    //fillRect(7, 23, 1, 1, FG_DARK_GREY);
-    //fillRect(8, 24, 1, 1, FG_DARK_GREY);
-    //fillRect(9, 25, 1, 1, FG_DARK_GREY);
-    //fillRect(10, 26, 1, 1, FG_DARK_GREY);
-    //fillRect(11, 27, 1, 1, FG_DARK_GREY);
-    //fillRect(12, 28, 1, 1, FG_DARK_GREY);
-
-    //fillRect(5, 28, 1, 1, FG_DARK_GREY);
-    //fillRect(6, 27, 1, 1, FG_DARK_GREY);
-    //fillRect(7, 26, 1, 1, FG_DARK_GREY);
-    //fillRect(8, 25, 1, 1, FG_DARK_GREY);
-    //fillRect(9, 24, 1, 1, FG_DARK_GREY);
-    //fillRect(10, 23, 1, 1, FG_DARK_GREY);
-    //fillRect(11,22, 1, 1, FG_DARK_GREY);
-    //fillRect(12, 21, 1, 1, FG_DARK_GREY);
-
-    //// X letter s section
-    //fillRect(21, 21, 1, 1, FG_DARK_GREY);
-    //fillRect(22, 22, 1, 1, FG_DARK_GREY);
-    //fillRect(23, 23, 1, 1, FG_DARK_GREY);
-    //fillRect(24, 24, 1, 1, FG_DARK_GREY);
-    //fillRect(25, 25, 1, 1, FG_DARK_GREY);
-    //fillRect(26, 26, 1, 1, FG_DARK_GREY);
-    //fillRect(27, 27, 1, 1, FG_DARK_GREY);
-    //fillRect(28, 28, 1, 1, FG_DARK_GREY);
-
-    //fillRect(21, 28, 1, 1, FG_DARK_GREY);
-    //fillRect(22, 27, 1, 1, FG_DARK_GREY);
-    //fillRect(23, 26, 1, 1, FG_DARK_GREY);
-    //fillRect(24, 25, 1, 1, FG_DARK_GREY);
-    //fillRect(25, 24, 1, 1, FG_DARK_GREY);
-    //fillRect(26, 23, 1, 1, FG_DARK_GREY);
-    //fillRect(27, 22, 1, 1, FG_DARK_GREY);
-    //fillRect(28, 21, 1, 1, FG_DARK_GREY);
-
-    //// X letter d section
-    //fillRect(37, 21, 1, 1, FG_DARK_GREY);
-    //fillRect(38, 22, 1, 1, FG_DARK_GREY);
-    //fillRect(39, 23, 1, 1, FG_DARK_GREY);
-    //fillRect(40, 24, 1, 1, FG_DARK_GREY);
-    //fillRect(41, 25, 1, 1, FG_DARK_GREY);
-    //fillRect(42, 26, 1, 1, FG_DARK_GREY);
-    //fillRect(43, 27, 1, 1, FG_DARK_GREY);
-    //fillRect(44, 28, 1, 1, FG_DARK_GREY);
-
-    //fillRect(37, 28, 1, 1, FG_DARK_GREY);
-    //fillRect(38, 27, 1, 1, FG_DARK_GREY);
-    //fillRect(39, 26, 1, 1, FG_DARK_GREY);
-    //fillRect(40, 25, 1, 1, FG_DARK_GREY);
-    //fillRect(41, 24, 1, 1, FG_DARK_GREY);
-    //fillRect(42, 23, 1, 1, FG_DARK_GREY);
-    //fillRect(43, 22, 1, 1, FG_DARK_GREY);
-    //fillRect(44, 21, 1, 1, FG_DARK_GREY);
-
-    //// X letter z section
-    //fillRect(5, 44, 1, 1, FG_DARK_GREY);
-    //fillRect(6, 43, 1, 1, FG_DARK_GREY);
-    //fillRect(7, 42, 1, 1, FG_DARK_GREY);
-    //fillRect(8, 41, 1, 1, FG_DARK_GREY);
-    //fillRect(9, 40, 1, 1, FG_DARK_GREY);
-    //fillRect(10, 39, 1, 1, FG_DARK_GREY);
-    //fillRect(11, 38, 1, 1, FG_DARK_GREY);
-    //fillRect(12, 37, 1, 1, FG_DARK_GREY);
-
-    //fillRect(12, 44, 1, 1, FG_DARK_GREY);
-    //fillRect(11, 43, 1, 1, FG_DARK_GREY);
-    //fillRect(10, 42, 1, 1, FG_DARK_GREY);
-    //fillRect(9, 41, 1, 1, FG_DARK_GREY);
-    //fillRect(8, 40, 1, 1, FG_DARK_GREY);
-    //fillRect(7, 39, 1, 1, FG_DARK_GREY);
-    //fillRect(6, 38, 1, 1, FG_DARK_GREY);
-    //fillRect(5, 37, 1, 1, FG_DARK_GREY);
-
-    //// X letter x section
-    //fillRect(21, 37, 1, 1, FG_DARK_GREY);
-    //fillRect(22, 38, 1, 1, FG_DARK_GREY);
-    //fillRect(23, 39, 1, 1, FG_DARK_GREY);
-    //fillRect(24, 40, 1, 1, FG_DARK_GREY);
-    //fillRect(25, 41, 1, 1, FG_DARK_GREY);
-    //fillRect(26, 42, 1, 1, FG_DARK_GREY);
-    //fillRect(27, 43, 1, 1, FG_DARK_GREY);
-    //fillRect(28, 44, 1, 1, FG_DARK_GREY);
-
-    //fillRect(21, 44, 1, 1, FG_DARK_GREY);
-    //fillRect(22, 43, 1, 1, FG_DARK_GREY);
-    //fillRect(23, 42, 1, 1, FG_DARK_GREY);
-    //fillRect(24, 41, 1, 1, FG_DARK_GREY);
-    //fillRect(25, 40, 1, 1, FG_DARK_GREY);
-    //fillRect(26, 39, 1, 1, FG_DARK_GREY);
-    //fillRect(27, 38, 1, 1, FG_DARK_GREY);
-    //fillRect(28, 37, 1, 1, FG_DARK_GREY);
-
-    //// X letter C section
-    //fillRect(37, 37, 1, 1, FG_DARK_GREY);
-    //fillRect(38, 38, 1, 1, FG_DARK_GREY);
-    //fillRect(39, 39, 1, 1, FG_DARK_GREY);
-    //fillRect(40, 40, 1, 1, FG_DARK_GREY);
-    //fillRect(41, 41, 1, 1, FG_DARK_GREY);
-    //fillRect(42, 42, 1, 1, FG_DARK_GREY);
-    //fillRect(43, 43, 1, 1, FG_DARK_GREY);
-    //fillRect(44, 44, 1, 1, FG_DARK_GREY);
-
-    //fillRect(37, 44, 1, 1, FG_DARK_GREY);
-    //fillRect(38, 43, 1, 1, FG_DARK_GREY);
-    //fillRect(39, 42, 1, 1, FG_DARK_GREY);
-    //fillRect(40, 41, 1, 1, FG_DARK_GREY);
-    //fillRect(41, 40, 1, 1, FG_DARK_GREY);
-    //fillRect(42, 39, 1, 1, FG_DARK_GREY);
-    //fillRect(43, 38, 1, 1, FG_DARK_GREY);
-    //fillRect(44, 37, 1, 1, FG_DARK_GREY);
-
-    // O letter q section
-    //fillRect(4, 8, 1, 1, FG_DARK_GREY);
-    //fillRect(4, 9, 1, 1, FG_DARK_GREY);
-    //fillRect(5, 7, 1, 1, FG_DARK_GREY);
-    //fillRect(6, 6, 1, 1, FG_DARK_GREY);
-    //fillRect(7, 5, 1, 1, FG_DARK_GREY);
-    //fillRect(8, 5, 1, 1, FG_DARK_GREY);
-    //fillRect(9, 5, 1, 1, FG_DARK_GREY);
-    //fillRect(10, 6, 1, 1, FG_DARK_GREY);
-    //fillRect(11, 7, 1, 1, FG_DARK_GREY);
-    //fillRect(12, 8, 1, 1, FG_DARK_GREY);
-    //fillRect(12, 9, 1, 1, FG_DARK_GREY);
-    //fillRect(11, 10, 1, 1, FG_DARK_GREY);
-    //fillRect(10, 11, 1, 1, FG_DARK_GREY);
-    //fillRect(9, 12, 1, 1, FG_DARK_GREY);
-    //fillRect(8, 12, 1, 1, FG_DARK_GREY);
-    //fillRect(7, 12, 1, 1, FG_DARK_GREY);
-    //fillRect(6, 11, 1, 1, FG_DARK_GREY);
-    //fillRect(5, 10, 1, 1, FG_DARK_GREY);
-
-    //// O letter W section
-    //fillRect(20, 8, 1, 1, FG_DARK_GREY);
-    //fillRect(20, 9, 1, 1, FG_DARK_GREY);
-    //fillRect(21, 7, 1, 1, FG_DARK_GREY);
-    //fillRect(22, 6, 1, 1, FG_DARK_GREY);
-    //fillRect(23, 5, 1, 1, FG_DARK_GREY);
-    //fillRect(24, 5, 1, 1, FG_DARK_GREY);
-    //fillRect(25, 5, 1, 1, FG_DARK_GREY);
-    //fillRect(26, 6, 1, 1, FG_DARK_GREY);
-    //fillRect(27, 7, 1, 1, FG_DARK_GREY);
-    //fillRect(28, 8, 1, 1, FG_DARK_GREY);
-    //fillRect(28, 9, 1, 1, FG_DARK_GREY);
-    //fillRect(27, 10, 1, 1, FG_DARK_GREY);
-    //fillRect(26, 11, 1, 1, FG_DARK_GREY);
-    //fillRect(25, 12, 1, 1, FG_DARK_GREY);
-    //fillRect(24, 12, 1, 1, FG_DARK_GREY);
-    //fillRect(23, 12, 1, 1, FG_DARK_GREY);
-    //fillRect(22, 11, 1, 1, FG_DARK_GREY);
-    //fillRect(21, 10, 1, 1, FG_DARK_GREY);
-
-    //// O letter e section
-    //fillRect(36, 8, 1, 1, FG_DARK_GREY);
-    //fillRect(36, 9, 1, 1, FG_DARK_GREY);
-    //fillRect(37, 7, 1, 1, FG_DARK_GREY);
-    //fillRect(38, 6, 1, 1, FG_DARK_GREY);
-    //fillRect(39, 5, 1, 1, FG_DARK_GREY);
-    //fillRect(40, 5, 1, 1, FG_DARK_GREY);
-    //fillRect(41, 5, 1, 1, FG_DARK_GREY);
-    //fillRect(42, 6, 1, 1, FG_DARK_GREY);
-    //fillRect(43, 7, 1, 1, FG_DARK_GREY);
-    //fillRect(44, 8, 1, 1, FG_DARK_GREY);
-    //fillRect(44, 9, 1, 1, FG_DARK_GREY);
-    //fillRect(43, 10, 1, 1, FG_DARK_GREY);
-    //fillRect(42, 11, 1, 1, FG_DARK_GREY);
-    //fillRect(41, 12, 1, 1, FG_DARK_GREY);
-    //fillRect(40, 12, 1, 1, FG_DARK_GREY);
-    //fillRect(39, 12, 1, 1, FG_DARK_GREY);
-    //fillRect(38, 11, 1, 1, FG_DARK_GREY);
-    //fillRect(37, 10, 1, 1, FG_DARK_GREY);
-
-    //// O letter a section
-    //fillRect(4, 24, 1, 1, FG_DARK_GREY);
-    //fillRect(4, 25, 1, 1, FG_DARK_GREY);
-    //fillRect(5, 26, 1, 1, FG_DARK_GREY);
-    //fillRect(6, 27, 1, 1, FG_DARK_GREY);
-    //fillRect(7, 28, 1, 1, FG_DARK_GREY);
-    //fillRect(8, 28, 1, 1, FG_DARK_GREY);
-    //fillRect(9, 28, 1, 1, FG_DARK_GREY);
-    //fillRect(10, 27, 1, 1, FG_DARK_GREY);
-    //fillRect(11, 26, 1, 1, FG_DARK_GREY);
-    //fillRect(12, 25, 1, 1, FG_DARK_GREY);
-    //fillRect(12, 24, 1, 1, FG_DARK_GREY);
-    //fillRect(11, 23, 1, 1, FG_DARK_GREY);
-    //fillRect(10, 22, 1, 1, FG_DARK_GREY);
-    //fillRect(9, 21, 1, 1, FG_DARK_GREY);
-    //fillRect(8, 21, 1, 1, FG_DARK_GREY);
-    //fillRect(7, 21, 1, 1, FG_DARK_GREY);
-    //fillRect(6, 22, 1, 1, FG_DARK_GREY);
-    //fillRect(5, 23, 1, 1, FG_DARK_GREY);
-
-    //// O letter s section
-    //fillRect(20, 24, 1, 1, FG_DARK_GREY);
-    //fillRect(20, 25, 1, 1, FG_DARK_GREY);
-    //fillRect(21, 26, 1, 1, FG_DARK_GREY);
-    //fillRect(22, 27, 1, 1, FG_DARK_GREY);
-    //fillRect(23, 28, 1, 1, FG_DARK_GREY);
-    //fillRect(24, 28, 1, 1, FG_DARK_GREY);
-    //fillRect(25, 28, 1, 1, FG_DARK_GREY);
-    //fillRect(26, 27, 1, 1, FG_DARK_GREY);
-    //fillRect(27, 26, 1, 1, FG_DARK_GREY);
-    //fillRect(28, 25, 1, 1, FG_DARK_GREY);
-    //fillRect(28, 24, 1, 1, FG_DARK_GREY);
-    //fillRect(27, 23, 1, 1, FG_DARK_GREY);
-    //fillRect(26, 22, 1, 1, FG_DARK_GREY);
-    //fillRect(25, 21, 1, 1, FG_DARK_GREY);
-    //fillRect(24, 21, 1, 1, FG_DARK_GREY);
-    //fillRect(23, 21, 1, 1, FG_DARK_GREY);
-    //fillRect(22, 22, 1, 1, FG_DARK_GREY);
-    //fillRect(21, 23, 1, 1, FG_DARK_GREY);
-
-    //// O letter d section
-    //fillRect(36, 24, 1, 1, FG_DARK_GREY);
-    //fillRect(36, 25, 1, 1, FG_DARK_GREY);
-    //fillRect(37, 26, 1, 1, FG_DARK_GREY);
-    //fillRect(38, 27, 1, 1, FG_DARK_GREY);
-    //fillRect(39, 28, 1, 1, FG_DARK_GREY);
-    //fillRect(40, 28, 1, 1, FG_DARK_GREY);
-    //fillRect(41, 28, 1, 1, FG_DARK_GREY);
-    //fillRect(42, 27, 1, 1, FG_DARK_GREY);
-    //fillRect(43, 26, 1, 1, FG_DARK_GREY);
-    //fillRect(44, 25, 1, 1, FG_DARK_GREY);
-    //fillRect(44, 24, 1, 1, FG_DARK_GREY);
-    //fillRect(43, 23, 1, 1, FG_DARK_GREY);
-    //fillRect(42, 22, 1, 1, FG_DARK_GREY);
-    //fillRect(41, 21, 1, 1, FG_DARK_GREY);
-    //fillRect(40, 21, 1, 1, FG_DARK_GREY);
-    //fillRect(39, 21, 1, 1, FG_DARK_GREY);
-    //fillRect(38, 22, 1, 1, FG_DARK_GREY);
-    //fillRect(37, 23, 1, 1, FG_DARK_GREY);
-
-    //// O letter z section
-    //fillRect(4, 40, 1, 1, FG_DARK_GREY);
-    //fillRect(4, 41, 1, 1, FG_DARK_GREY);
-    //fillRect(5, 42, 1, 1, FG_DARK_GREY);
-    //fillRect(6, 43, 1, 1, FG_DARK_GREY);
-    //fillRect(7, 44, 1, 1, FG_DARK_GREY);
-    //fillRect(8, 44, 1, 1, FG_DARK_GREY);
-    //fillRect(9, 44, 1, 1, FG_DARK_GREY);
-    //fillRect(10, 43, 1, 1, FG_DARK_GREY);
-    //fillRect(11, 42, 1, 1, FG_DARK_GREY);
-    //fillRect(12, 41, 1, 1, FG_DARK_GREY);
-    //fillRect(12, 40, 1, 1, FG_DARK_GREY);
-    //fillRect(11, 39, 1, 1, FG_DARK_GREY);
-    //fillRect(10, 38, 1, 1, FG_DARK_GREY);
-    //fillRect(9, 37, 1, 1, FG_DARK_GREY);
-    //fillRect(8, 37, 1, 1, FG_DARK_GREY);
-    //fillRect(7, 37, 1, 1, FG_DARK_GREY);
-    //fillRect(6, 38, 1, 1, FG_DARK_GREY);
-    //fillRect(5, 39, 1, 1, FG_DARK_GREY);
-
-    //// O letter x section
-    //fillRect(20, 40, 1, 1, FG_DARK_GREY);
-    //fillRect(20, 41, 1, 1, FG_DARK_GREY);
-    //fillRect(21, 42, 1, 1, FG_DARK_GREY);
-    //fillRect(22, 43, 1, 1, FG_DARK_GREY);
-    //fillRect(23, 44, 1, 1, FG_DARK_GREY);
-    //fillRect(24, 44, 1, 1, FG_DARK_GREY);
-    //fillRect(25, 44, 1, 1, FG_DARK_GREY);
-    //fillRect(26, 43, 1, 1, FG_DARK_GREY);
-    //fillRect(27, 42, 1, 1, FG_DARK_GREY);
-    //fillRect(28, 41, 1, 1, FG_DARK_GREY);
-    //fillRect(28, 40, 1, 1, FG_DARK_GREY);
-    //fillRect(27, 39, 1, 1, FG_DARK_GREY);
-    //fillRect(26, 38, 1, 1, FG_DARK_GREY);
-    //fillRect(25, 37, 1, 1, FG_DARK_GREY);
-    //fillRect(24, 37, 1, 1, FG_DARK_GREY);
-    //fillRect(23, 37, 1, 1, FG_DARK_GREY);
-    //fillRect(22, 38, 1, 1, FG_DARK_GREY);
-    //fillRect(21, 39, 1, 1, FG_DARK_GREY);
-
-    //// O letter c section
-    //fillRect(36, 40, 1, 1, FG_DARK_GREY);
-    //fillRect(36, 41, 1, 1, FG_DARK_GREY);
-    //fillRect(37, 42, 1, 1, FG_DARK_GREY);
-    //fillRect(38, 43, 1, 1, FG_DARK_GREY);
-    //fillRect(39, 44, 1, 1, FG_DARK_GREY);
-    //fillRect(40, 44, 1, 1, FG_DARK_GREY);
-    //fillRect(41, 44, 1, 1, FG_DARK_GREY);
-    //fillRect(42, 43, 1, 1, FG_DARK_GREY);
-    //fillRect(43, 42, 1, 1, FG_DARK_GREY);
-    //fillRect(44, 41, 1, 1, FG_DARK_GREY);
-    //fillRect(44, 40, 1, 1, FG_DARK_GREY);
-    //fillRect(43, 39, 1, 1, FG_DARK_GREY);
-    //fillRect(42, 38, 1, 1, FG_DARK_GREY);
-    //fillRect(41, 37, 1, 1, FG_DARK_GREY);
-    //fillRect(40, 37, 1, 1, FG_DARK_GREY);
-    //fillRect(39, 37, 1, 1, FG_DARK_GREY);
-    //fillRect(38, 38, 1, 1, FG_DARK_GREY);
-    //fillRect(37, 39, 1, 1, FG_DARK_GREY);
-
+    drawString(14, 15, "F1", layerColours(FG_WHITE, BG_DARK_BLUE));
+    drawString(30, 15, "F2", layerColours(FG_WHITE, BG_DARK_BLUE));
+    drawString(47, 15, "F3", layerColours(FG_WHITE, BG_DARK_BLUE));
+    drawString(14, 31, "F4", layerColours(FG_WHITE, BG_DARK_BLUE));
+    drawString(30, 31, "F5", layerColours(FG_WHITE, BG_DARK_BLUE));
+    drawString(47, 31, "F6", layerColours(FG_WHITE, BG_DARK_BLUE));
+    drawString(14, 48, "F7", layerColours(FG_WHITE, BG_DARK_BLUE));
+    drawString(30, 48, "F8", layerColours(FG_WHITE, BG_DARK_BLUE));
+    drawString(47, 48, "F9", layerColours(FG_WHITE, BG_DARK_BLUE));
 
     return(0);
 }
@@ -1220,194 +901,601 @@ int wallDraw()                              //This Functon draws the obstacles t
 void player_turn()
 {
 
+    bool playerHasQuit = false;
 
 
-
-    if (turn == 'X')
-    {
-        //cout << "ntPlayer - 1 [X] turn : ";
-    }
-    else if (turn == 'O')
-    {
-        //cout << "ntPlayer - 2 [O] turn : ";
-    }
-    //Taking input from user
-    //updating the board according to choice and reassigning the turn Start
+    //if (turn == 'X')
+    //{
+    //    //cout << "ntPlayer - 1 [X] turn : ";
+    //}
+    //else if (turn == 'O')
+    //{
+    //    //cout << "ntPlayer - 2 [O] turn : ";
+    //}
+    ////Taking input from user
+    ////updating the board according to choice and reassigning the turn Start
 
 
     do
     {
-        textpixels::startFrame();                         // starts Frame window to enable drawing
+                        // starts Frame window to enable drawing
         drawGameInterface();
         wallDraw();
 
-    if (keyIsDown(VK_ESCAPE))
-    {
-        choice = 1;
-    }
-    else if (keyIsDown(VK_LEFT))
-    {
-        choice = 2;
-    }
-    } while (!playerHasQuit);
 
 
-    //cin >> choice;
-    /*if (choiceinput == 'q')
-    {
-        choice = 1;
-    }
-    else if (choiceinput == 'w')
-    {
-        choice = 2;
-    }
-    else if (choiceinput == 'e')
-    {
-        choice = 3;
-    }
-    else if (choiceinput == 'a')
-    {
-        choice = 4;
-    }
-    else if (choiceinput == 's')
-    {
-        choice = 5;
-    }
-    else if (choiceinput == 'd')
-    {
-        choice = 6;
-    }
-    else if (choiceinput == 'z')
-    {
-        choice = 7;
-    }
-    else if (choiceinput == 'x')
-    {
-        choice = 8;
-    }
-    else if (choiceinput == 'c')
-    {
-        choice = 9;
-    }*/
-    //switch case to get which row and column will be update
 
-    switch (choice)
-    {
-    case 1: row = 0; column = 0;
-        // Q spot
-        // X letter q section
-        fillRect(5, 5, 1, 1, FG_DARK_GREY);
-        fillRect(6, 6, 1, 1, FG_DARK_GREY);
-        fillRect(7, 7, 1, 1, FG_DARK_GREY);
-        fillRect(8, 8, 1, 1, FG_DARK_GREY);
-        fillRect(9, 9, 1, 1, FG_DARK_GREY);
-        fillRect(10, 10, 1, 1, FG_DARK_GREY);
-        fillRect(11, 11, 1, 1, FG_DARK_GREY);
-        fillRect(12, 12, 1, 1, FG_DARK_GREY);
+        //cin >> choice;
+        //if (choiceinput == 'q')
+        //{
+        //    choice = 1;
+        //}
+        //else if (choiceinput == 'w')
+        //{
+        //    choice = 2;
+        //}
+        //else if (choiceinput == 'e')
+        //{
+        //    choice = 3;
+        //}
+        //else if (choiceinput == 'a')
+        //{
+        //    choice = 4;
+        //}
+        //else if (choiceinput == 's')
+        //{
+        //    choice = 5;
+        //}
+        //else if (choiceinput == 'd')
+        //{
+        //    choice = 6;
+        //}
+        //else if (choiceinput == 'z')
+        //{
+        //    choice = 7;
+        //}
+        //else if (choiceinput == 'x')
+        //{
+        //    choice = 8;
+        //}
+        //else if (choiceinput == 'c')
+        //{
+        //    choice = 9;
+        //}
+        //switch case to get which row and column will be update
 
-        fillRect(5, 12, 1, 1, FG_DARK_GREY);
-        fillRect(6, 11, 1, 1, FG_DARK_GREY);
-        fillRect(7, 10, 1, 1, FG_DARK_GREY);
-        fillRect(8, 9, 1, 1, FG_DARK_GREY);
-        fillRect(9, 8, 1, 1, FG_DARK_GREY);
-        fillRect(10, 7, 1, 1, FG_DARK_GREY);
-        fillRect(11, 6, 1, 1, FG_DARK_GREY);
-        fillRect(12, 5, 1, 1, FG_DARK_GREY);
-        break;
+        switch (choice)
+        {
+        case 1: row = 0; column = 0;
+            if (currentPlayer == 'X')
+            {
+                // X letter q section
+                fillRect(5, 5, 1, 1, FG_DARK_GREY);
+                fillRect(6, 6, 1, 1, FG_DARK_GREY);
+                fillRect(7, 7, 1, 1, FG_DARK_GREY);
+                fillRect(8, 8, 1, 1, FG_DARK_GREY);
+                fillRect(9, 9, 1, 1, FG_DARK_GREY);
+                fillRect(10, 10, 1, 1, FG_DARK_GREY);
+                fillRect(11, 11, 1, 1, FG_DARK_GREY);
+                fillRect(12, 12, 1, 1, FG_DARK_GREY);
+
+                fillRect(5, 12, 1, 1, FG_DARK_GREY);
+                fillRect(6, 11, 1, 1, FG_DARK_GREY);
+                fillRect(7, 10, 1, 1, FG_DARK_GREY);
+                fillRect(8, 9, 1, 1, FG_DARK_GREY);
+                fillRect(9, 8, 1, 1, FG_DARK_GREY);
+                fillRect(10, 7, 1, 1, FG_DARK_GREY);
+                fillRect(11, 6, 1, 1, FG_DARK_GREY);
+                fillRect(12, 5, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'O';
+                break;
+            }
+
+            else
+            {
+                 //O letter q section
+                fillRect(4, 8, 1, 1, FG_DARK_GREY);
+                fillRect(4, 9, 1, 1, FG_DARK_GREY);
+                fillRect(5, 7, 1, 1, FG_DARK_GREY);
+                fillRect(6, 6, 1, 1, FG_DARK_GREY);
+                fillRect(7, 5, 1, 1, FG_DARK_GREY);
+                fillRect(8, 5, 1, 1, FG_DARK_GREY);
+                fillRect(9, 5, 1, 1, FG_DARK_GREY);
+                fillRect(10, 6, 1, 1, FG_DARK_GREY);
+                fillRect(11, 7, 1, 1, FG_DARK_GREY);
+                fillRect(12, 8, 1, 1, FG_DARK_GREY);
+                fillRect(12, 9, 1, 1, FG_DARK_GREY);
+                fillRect(11, 10, 1, 1, FG_DARK_GREY);
+                fillRect(10, 11, 1, 1, FG_DARK_GREY);
+                fillRect(9, 12, 1, 1, FG_DARK_GREY);
+                fillRect(8, 12, 1, 1, FG_DARK_GREY);
+                fillRect(7, 12, 1, 1, FG_DARK_GREY);
+                fillRect(6, 11, 1, 1, FG_DARK_GREY);
+                fillRect(5, 10, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'X';
+                break;
+            }
 
 
-        case 2: row = 0; column = 1; 
-         // W spot
-         // X letter w section
-        fillRect(21, 5, 1, 1, FG_DARK_GREY);
-        fillRect(22, 6, 1, 1, FG_DARK_GREY);
-        fillRect(23, 7, 1, 1, FG_DARK_GREY);
-        fillRect(24, 8, 1, 1, FG_DARK_GREY);
-        fillRect(25, 9, 1, 1, FG_DARK_GREY);
-        fillRect(26, 10, 1, 1, FG_DARK_GREY);
-        fillRect(27, 11, 1, 1, FG_DARK_GREY);
-        fillRect(28, 12, 1, 1, FG_DARK_GREY);
+        case 2: row = 0; column = 1;
+            if (currentPlayer == 'X')
+            {
+                // X letter w section
+                fillRect(21, 5, 1, 1, FG_DARK_GREY);
+                fillRect(22, 6, 1, 1, FG_DARK_GREY);
+                fillRect(23, 7, 1, 1, FG_DARK_GREY);
+                fillRect(24, 8, 1, 1, FG_DARK_GREY);
+                fillRect(25, 9, 1, 1, FG_DARK_GREY);
+                fillRect(26, 10, 1, 1, FG_DARK_GREY);
+                fillRect(27, 11, 1, 1, FG_DARK_GREY);
+                fillRect(28, 12, 1, 1, FG_DARK_GREY);
 
-        fillRect(21, 12, 1, 1, FG_DARK_GREY);
-        fillRect(22, 11, 1, 1, FG_DARK_GREY);
-        fillRect(23, 10, 1, 1, FG_DARK_GREY);
-        fillRect(24, 9, 1, 1, FG_DARK_GREY);
-        fillRect(25, 8, 1, 1, FG_DARK_GREY);
-        fillRect(26, 7, 1, 1, FG_DARK_GREY);
-        fillRect(27, 6, 1, 1, FG_DARK_GREY);
-        fillRect(28, 5, 1, 1, FG_DARK_GREY);
-        break;
+                fillRect(21, 12, 1, 1, FG_DARK_GREY);
+                fillRect(22, 11, 1, 1, FG_DARK_GREY);
+                fillRect(23, 10, 1, 1, FG_DARK_GREY);
+                fillRect(24, 9, 1, 1, FG_DARK_GREY);
+                fillRect(25, 8, 1, 1, FG_DARK_GREY);
+                fillRect(26, 7, 1, 1, FG_DARK_GREY);
+                fillRect(27, 6, 1, 1, FG_DARK_GREY);
+                fillRect(28, 5, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'O';
+                break;
+            }
+            else
+            {
+                // O letter W section
+                fillRect(20, 8, 1, 1, FG_DARK_GREY);
+                fillRect(20, 9, 1, 1, FG_DARK_GREY);
+                fillRect(21, 7, 1, 1, FG_DARK_GREY);
+                fillRect(22, 6, 1, 1, FG_DARK_GREY);
+                fillRect(23, 5, 1, 1, FG_DARK_GREY);
+                fillRect(24, 5, 1, 1, FG_DARK_GREY);
+                fillRect(25, 5, 1, 1, FG_DARK_GREY);
+                fillRect(26, 6, 1, 1, FG_DARK_GREY);
+                fillRect(27, 7, 1, 1, FG_DARK_GREY);
+                fillRect(28, 8, 1, 1, FG_DARK_GREY);
+                fillRect(28, 9, 1, 1, FG_DARK_GREY);
+                fillRect(27, 10, 1, 1, FG_DARK_GREY);
+                fillRect(26, 11, 1, 1, FG_DARK_GREY);
+                fillRect(25, 12, 1, 1, FG_DARK_GREY);
+                fillRect(24, 12, 1, 1, FG_DARK_GREY);
+                fillRect(23, 12, 1, 1, FG_DARK_GREY);
+                fillRect(22, 11, 1, 1, FG_DARK_GREY);
+                fillRect(21, 10, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'X';
+                break;
+            }
 
 
-        case 3: row = 0; column = 2; 
+        case 3: row = 0; column = 2;
             // E spot
+            if (currentPlayer == 'X')
+            {
+                // X letter e section
+                fillRect(37, 5, 1, 1, FG_DARK_GREY);
+                fillRect(38, 6, 1, 1, FG_DARK_GREY);
+                fillRect(39, 7, 1, 1, FG_DARK_GREY);
+                fillRect(40, 8, 1, 1, FG_DARK_GREY);
+                fillRect(41, 9, 1, 1, FG_DARK_GREY);
+                fillRect(42, 10, 1, 1, FG_DARK_GREY);
+                fillRect(43, 11, 1, 1, FG_DARK_GREY);
+                fillRect(44, 12, 1, 1, FG_DARK_GREY);
 
-            break;
+                fillRect(37, 12, 1, 1, FG_DARK_GREY);
+                fillRect(38, 11, 1, 1, FG_DARK_GREY);
+                fillRect(39, 10, 1, 1, FG_DARK_GREY);
+                fillRect(40, 9, 1, 1, FG_DARK_GREY);
+                fillRect(41, 8, 1, 1, FG_DARK_GREY);
+                fillRect(42, 7, 1, 1, FG_DARK_GREY);
+                fillRect(43, 6, 1, 1, FG_DARK_GREY);
+                fillRect(44, 5, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'O';
+                break;
+            }
+            else
+            {
+                // O letter e section
+                fillRect(36, 8, 1, 1, FG_DARK_GREY);
+                fillRect(36, 9, 1, 1, FG_DARK_GREY);
+                fillRect(37, 7, 1, 1, FG_DARK_GREY);
+                fillRect(38, 6, 1, 1, FG_DARK_GREY);
+                fillRect(39, 5, 1, 1, FG_DARK_GREY);
+                fillRect(40, 5, 1, 1, FG_DARK_GREY);
+                fillRect(41, 5, 1, 1, FG_DARK_GREY);
+                fillRect(42, 6, 1, 1, FG_DARK_GREY);
+                fillRect(43, 7, 1, 1, FG_DARK_GREY);
+                fillRect(44, 8, 1, 1, FG_DARK_GREY);
+                fillRect(44, 9, 1, 1, FG_DARK_GREY);
+                fillRect(43, 10, 1, 1, FG_DARK_GREY);
+                fillRect(42, 11, 1, 1, FG_DARK_GREY);
+                fillRect(41, 12, 1, 1, FG_DARK_GREY);
+                fillRect(40, 12, 1, 1, FG_DARK_GREY);
+                fillRect(39, 12, 1, 1, FG_DARK_GREY);
+                fillRect(38, 11, 1, 1, FG_DARK_GREY);
+                fillRect(37, 10, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'X';
+                break;
+            }
 
-
-        case 4: row = 1; column = 0; 
+        case 4: row = 1; column = 0;
             // A spot
+            if (currentPlayer == 'X')
+            {
+                // X letter a section
+                fillRect(5, 21, 1, 1, FG_DARK_GREY);
+                fillRect(6, 22, 1, 1, FG_DARK_GREY);
+                fillRect(7, 23, 1, 1, FG_DARK_GREY);
+                fillRect(8, 24, 1, 1, FG_DARK_GREY);
+                fillRect(9, 25, 1, 1, FG_DARK_GREY);
+                fillRect(10, 26, 1, 1, FG_DARK_GREY);
+                fillRect(11, 27, 1, 1, FG_DARK_GREY);
+                fillRect(12, 28, 1, 1, FG_DARK_GREY);
 
-            break;
+                fillRect(5, 28, 1, 1, FG_DARK_GREY);
+                fillRect(6, 27, 1, 1, FG_DARK_GREY);
+                fillRect(7, 26, 1, 1, FG_DARK_GREY);
+                fillRect(8, 25, 1, 1, FG_DARK_GREY);
+                fillRect(9, 24, 1, 1, FG_DARK_GREY);
+                fillRect(10, 23, 1, 1, FG_DARK_GREY);
+                fillRect(11, 22, 1, 1, FG_DARK_GREY);
+                fillRect(12, 21, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'O';
+                break;
+            }
+            else
+            {
+                // O letter a section
+                fillRect(4, 24, 1, 1, FG_DARK_GREY);
+                fillRect(4, 25, 1, 1, FG_DARK_GREY);
+                fillRect(5, 26, 1, 1, FG_DARK_GREY);
+                fillRect(6, 27, 1, 1, FG_DARK_GREY);
+                fillRect(7, 28, 1, 1, FG_DARK_GREY);
+                fillRect(8, 28, 1, 1, FG_DARK_GREY);
+                fillRect(9, 28, 1, 1, FG_DARK_GREY);
+                fillRect(10, 27, 1, 1, FG_DARK_GREY);
+                fillRect(11, 26, 1, 1, FG_DARK_GREY);
+                fillRect(12, 25, 1, 1, FG_DARK_GREY);
+                fillRect(12, 24, 1, 1, FG_DARK_GREY);
+                fillRect(11, 23, 1, 1, FG_DARK_GREY);
+                fillRect(10, 22, 1, 1, FG_DARK_GREY);
+                fillRect(9, 21, 1, 1, FG_DARK_GREY);
+                fillRect(8, 21, 1, 1, FG_DARK_GREY);
+                fillRect(7, 21, 1, 1, FG_DARK_GREY);
+                fillRect(6, 22, 1, 1, FG_DARK_GREY);
+                fillRect(5, 23, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'X';
+                break;
+            }
 
-
-        case 5: row = 1; column = 1; 
+        case 5: row = 1; column = 1;
             // S spot
+            if (currentPlayer == 'X')
+            {
+                // X letter s section
+                fillRect(21, 21, 1, 1, FG_DARK_GREY);
+                fillRect(22, 22, 1, 1, FG_DARK_GREY);
+                fillRect(23, 23, 1, 1, FG_DARK_GREY);
+                fillRect(24, 24, 1, 1, FG_DARK_GREY);
+                fillRect(25, 25, 1, 1, FG_DARK_GREY);
+                fillRect(26, 26, 1, 1, FG_DARK_GREY);
+                fillRect(27, 27, 1, 1, FG_DARK_GREY);
+                fillRect(28, 28, 1, 1, FG_DARK_GREY);
 
-            break;
+                fillRect(21, 28, 1, 1, FG_DARK_GREY);
+                fillRect(22, 27, 1, 1, FG_DARK_GREY);
+                fillRect(23, 26, 1, 1, FG_DARK_GREY);
+                fillRect(24, 25, 1, 1, FG_DARK_GREY);
+                fillRect(25, 24, 1, 1, FG_DARK_GREY);
+                fillRect(26, 23, 1, 1, FG_DARK_GREY);
+                fillRect(27, 22, 1, 1, FG_DARK_GREY);
+                fillRect(28, 21, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'O';
+                break;
+            }
+            else
+            {
+                // O letter s section
+                fillRect(20, 24, 1, 1, FG_DARK_GREY);
+                fillRect(20, 25, 1, 1, FG_DARK_GREY);
+                fillRect(21, 26, 1, 1, FG_DARK_GREY);
+                fillRect(22, 27, 1, 1, FG_DARK_GREY);
+                fillRect(23, 28, 1, 1, FG_DARK_GREY);
+                fillRect(24, 28, 1, 1, FG_DARK_GREY);
+                fillRect(25, 28, 1, 1, FG_DARK_GREY);
+                fillRect(26, 27, 1, 1, FG_DARK_GREY);
+                fillRect(27, 26, 1, 1, FG_DARK_GREY);
+                fillRect(28, 25, 1, 1, FG_DARK_GREY);
+                fillRect(28, 24, 1, 1, FG_DARK_GREY);
+                fillRect(27, 23, 1, 1, FG_DARK_GREY);
+                fillRect(26, 22, 1, 1, FG_DARK_GREY);
+                fillRect(25, 21, 1, 1, FG_DARK_GREY);
+                fillRect(24, 21, 1, 1, FG_DARK_GREY);
+                fillRect(23, 21, 1, 1, FG_DARK_GREY);
+                fillRect(22, 22, 1, 1, FG_DARK_GREY);
+                fillRect(21, 23, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'X';
+                break;
+            }
 
 
-        case 6: row = 1; column = 2; 
+
+        case 6: row = 1; column = 2;
             // D spot
+            if (currentPlayer == 'X')
+            {
+                // X letter d section
+                fillRect(37, 21, 1, 1, FG_DARK_GREY);
+                fillRect(38, 22, 1, 1, FG_DARK_GREY);
+                fillRect(39, 23, 1, 1, FG_DARK_GREY);
+                fillRect(40, 24, 1, 1, FG_DARK_GREY);
+                fillRect(41, 25, 1, 1, FG_DARK_GREY);
+                fillRect(42, 26, 1, 1, FG_DARK_GREY);
+                fillRect(43, 27, 1, 1, FG_DARK_GREY);
+                fillRect(44, 28, 1, 1, FG_DARK_GREY);
 
-            break;
+                fillRect(37, 28, 1, 1, FG_DARK_GREY);
+                fillRect(38, 27, 1, 1, FG_DARK_GREY);
+                fillRect(39, 26, 1, 1, FG_DARK_GREY);
+                fillRect(40, 25, 1, 1, FG_DARK_GREY);
+                fillRect(41, 24, 1, 1, FG_DARK_GREY);
+                fillRect(42, 23, 1, 1, FG_DARK_GREY);
+                fillRect(43, 22, 1, 1, FG_DARK_GREY);
+                fillRect(44, 21, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'O';
+                break;
+            }
+            else
+            {
+                // O letter d section
+                fillRect(36, 24, 1, 1, FG_DARK_GREY);
+                fillRect(36, 25, 1, 1, FG_DARK_GREY);
+                fillRect(37, 26, 1, 1, FG_DARK_GREY);
+                fillRect(38, 27, 1, 1, FG_DARK_GREY);
+                fillRect(39, 28, 1, 1, FG_DARK_GREY);
+                fillRect(40, 28, 1, 1, FG_DARK_GREY);
+                fillRect(41, 28, 1, 1, FG_DARK_GREY);
+                fillRect(42, 27, 1, 1, FG_DARK_GREY);
+                fillRect(43, 26, 1, 1, FG_DARK_GREY);
+                fillRect(44, 25, 1, 1, FG_DARK_GREY);
+                fillRect(44, 24, 1, 1, FG_DARK_GREY);
+                fillRect(43, 23, 1, 1, FG_DARK_GREY);
+                fillRect(42, 22, 1, 1, FG_DARK_GREY);
+                fillRect(41, 21, 1, 1, FG_DARK_GREY);
+                fillRect(40, 21, 1, 1, FG_DARK_GREY);
+                fillRect(39, 21, 1, 1, FG_DARK_GREY);
+                fillRect(38, 22, 1, 1, FG_DARK_GREY);
+                fillRect(37, 23, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'X';
+                break;
+            }
+
 
 
         case 7: row = 2; column = 0;
             //Z spot
+            if (currentPlayer == 'X')
+            {
+                // X letter z section
+                fillRect(5, 44, 1, 1, FG_DARK_GREY);
+                fillRect(6, 43, 1, 1, FG_DARK_GREY);
+                fillRect(7, 42, 1, 1, FG_DARK_GREY);
+                fillRect(8, 41, 1, 1, FG_DARK_GREY);
+                fillRect(9, 40, 1, 1, FG_DARK_GREY);
+                fillRect(10, 39, 1, 1, FG_DARK_GREY);
+                fillRect(11, 38, 1, 1, FG_DARK_GREY);
+                fillRect(12, 37, 1, 1, FG_DARK_GREY);
 
-            break;
+                fillRect(12, 44, 1, 1, FG_DARK_GREY);
+                fillRect(11, 43, 1, 1, FG_DARK_GREY);
+                fillRect(10, 42, 1, 1, FG_DARK_GREY);
+                fillRect(9, 41, 1, 1, FG_DARK_GREY);
+                fillRect(8, 40, 1, 1, FG_DARK_GREY);
+                fillRect(7, 39, 1, 1, FG_DARK_GREY);
+                fillRect(6, 38, 1, 1, FG_DARK_GREY);
+                fillRect(5, 37, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'O';
+                break;
+            }
+            else
+            {
+                // O letter z section
+                fillRect(4, 40, 1, 1, FG_DARK_GREY);
+                fillRect(4, 41, 1, 1, FG_DARK_GREY);
+                fillRect(5, 42, 1, 1, FG_DARK_GREY);
+                fillRect(6, 43, 1, 1, FG_DARK_GREY);
+                fillRect(7, 44, 1, 1, FG_DARK_GREY);
+                fillRect(8, 44, 1, 1, FG_DARK_GREY);
+                fillRect(9, 44, 1, 1, FG_DARK_GREY);
+                fillRect(10, 43, 1, 1, FG_DARK_GREY);
+                fillRect(11, 42, 1, 1, FG_DARK_GREY);
+                fillRect(12, 41, 1, 1, FG_DARK_GREY);
+                fillRect(12, 40, 1, 1, FG_DARK_GREY);
+                fillRect(11, 39, 1, 1, FG_DARK_GREY);
+                fillRect(10, 38, 1, 1, FG_DARK_GREY);
+                fillRect(9, 37, 1, 1, FG_DARK_GREY);
+                fillRect(8, 37, 1, 1, FG_DARK_GREY);
+                fillRect(7, 37, 1, 1, FG_DARK_GREY);
+                fillRect(6, 38, 1, 1, FG_DARK_GREY);
+                fillRect(5, 39, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'X';
+                break;
+            }
 
 
-        case 8: row = 2; column = 1; 
+
+        case 8: row = 2; column = 1;
             // X spot
+            if (currentPlayer == 'X')
+            {
+                // X letter x section
+                fillRect(21, 37, 1, 1, FG_DARK_GREY);
+                fillRect(22, 38, 1, 1, FG_DARK_GREY);
+                fillRect(23, 39, 1, 1, FG_DARK_GREY);
+                fillRect(24, 40, 1, 1, FG_DARK_GREY);
+                fillRect(25, 41, 1, 1, FG_DARK_GREY);
+                fillRect(26, 42, 1, 1, FG_DARK_GREY);
+                fillRect(27, 43, 1, 1, FG_DARK_GREY);
+                fillRect(28, 44, 1, 1, FG_DARK_GREY);
 
-            break;
+                fillRect(21, 44, 1, 1, FG_DARK_GREY);
+                fillRect(22, 43, 1, 1, FG_DARK_GREY);
+                fillRect(23, 42, 1, 1, FG_DARK_GREY);
+                fillRect(24, 41, 1, 1, FG_DARK_GREY);
+                fillRect(25, 40, 1, 1, FG_DARK_GREY);
+                fillRect(26, 39, 1, 1, FG_DARK_GREY);
+                fillRect(27, 38, 1, 1, FG_DARK_GREY);
+                fillRect(28, 37, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'O';
+                break;
+            }
+            else
+            {
+                // O letter x section
+                fillRect(20, 40, 1, 1, FG_DARK_GREY);
+                fillRect(20, 41, 1, 1, FG_DARK_GREY);
+                fillRect(21, 42, 1, 1, FG_DARK_GREY);
+                fillRect(22, 43, 1, 1, FG_DARK_GREY);
+                fillRect(23, 44, 1, 1, FG_DARK_GREY);
+                fillRect(24, 44, 1, 1, FG_DARK_GREY);
+                fillRect(25, 44, 1, 1, FG_DARK_GREY);
+                fillRect(26, 43, 1, 1, FG_DARK_GREY);
+                fillRect(27, 42, 1, 1, FG_DARK_GREY);
+                fillRect(28, 41, 1, 1, FG_DARK_GREY);
+                fillRect(28, 40, 1, 1, FG_DARK_GREY);
+                fillRect(27, 39, 1, 1, FG_DARK_GREY);
+                fillRect(26, 38, 1, 1, FG_DARK_GREY);
+                fillRect(25, 37, 1, 1, FG_DARK_GREY);
+                fillRect(24, 37, 1, 1, FG_DARK_GREY);
+                fillRect(23, 37, 1, 1, FG_DARK_GREY);
+                fillRect(22, 38, 1, 1, FG_DARK_GREY);
+                fillRect(21, 39, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'X';
+                break;
+            }
 
 
-        case 9: row = 2; column = 2; 
+
+        case 9: row = 2; column = 2;
             // C spot
+            if (currentPlayer == 'X')
+            {
+                // X letter C section
+                fillRect(37, 37, 1, 1, FG_DARK_GREY);
+                fillRect(38, 38, 1, 1, FG_DARK_GREY);
+                fillRect(39, 39, 1, 1, FG_DARK_GREY);
+                fillRect(40, 40, 1, 1, FG_DARK_GREY);
+                fillRect(41, 41, 1, 1, FG_DARK_GREY);
+                fillRect(42, 42, 1, 1, FG_DARK_GREY);
+                fillRect(43, 43, 1, 1, FG_DARK_GREY);
+                fillRect(44, 44, 1, 1, FG_DARK_GREY);
 
-            break;
+                fillRect(37, 44, 1, 1, FG_DARK_GREY);
+                fillRect(38, 43, 1, 1, FG_DARK_GREY);
+                fillRect(39, 42, 1, 1, FG_DARK_GREY);
+                fillRect(40, 41, 1, 1, FG_DARK_GREY);
+                fillRect(41, 40, 1, 1, FG_DARK_GREY);
+                fillRect(42, 39, 1, 1, FG_DARK_GREY);
+                fillRect(43, 38, 1, 1, FG_DARK_GREY);
+                fillRect(44, 37, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'O';
+                break;
+            }
+            else
+            {
+                // O letter c section
+                fillRect(36, 40, 1, 1, FG_DARK_GREY);
+                fillRect(36, 41, 1, 1, FG_DARK_GREY);
+                fillRect(37, 42, 1, 1, FG_DARK_GREY);
+                fillRect(38, 43, 1, 1, FG_DARK_GREY);
+                fillRect(39, 44, 1, 1, FG_DARK_GREY);
+                fillRect(40, 44, 1, 1, FG_DARK_GREY);
+                fillRect(41, 44, 1, 1, FG_DARK_GREY);
+                fillRect(42, 43, 1, 1, FG_DARK_GREY);
+                fillRect(43, 42, 1, 1, FG_DARK_GREY);
+                fillRect(44, 41, 1, 1, FG_DARK_GREY);
+                fillRect(44, 40, 1, 1, FG_DARK_GREY);
+                fillRect(43, 39, 1, 1, FG_DARK_GREY);
+                fillRect(42, 38, 1, 1, FG_DARK_GREY);
+                fillRect(41, 37, 1, 1, FG_DARK_GREY);
+                fillRect(40, 37, 1, 1, FG_DARK_GREY);
+                fillRect(39, 37, 1, 1, FG_DARK_GREY);
+                fillRect(38, 38, 1, 1, FG_DARK_GREY);
+                fillRect(37, 39, 1, 1, FG_DARK_GREY);
+                currentPlayer = 'x';
+                break;
+            }
+
 
 
         default:
-            cout << "Invalid Move";
+            break;
         }
 
-        if (turn == 'X' && board[row][column] != 'X' && board[row][column] != 'O') {
-            //updating the position for 'X' symbol if
-            //it is not already occupied
-            board[row][column] = 'X';
-            turn = 'O';
-        }
-        else if (turn == 'O' && board[row][column] != 'X' && board[row][column] != 'O') {
-            //updating the position for 'O' symbol if
-            //it is not already occupied
-            board[row][column] = 'O';
-            turn = 'X';
-        }
-        else 
+        if (keyIsDown(VK_F1))
         {
-            //if input position already filled
-            //cout << "Box already filled!n Please choose another!!nn";
-            player_turn();
+            choice = 1;
         }
+        else if (keyIsDown(VK_F2))
+        {
+            choice = 2;
+        }
+        else if (keyIsDown(VK_F3))
+        {
+            choice = 3;
+        }
+        else if (keyIsDown(VK_F4))
+        {
+            choice = 4;
+        }
+        else if (keyIsDown(VK_F5))
+        {
+            choice = 5;
+        }
+        else if (keyIsDown(VK_F6))
+        {
+            choice = 6;
+        }
+        else if (keyIsDown(VK_F7))
+        {
+            choice = 7;
+        }
+        else if (keyIsDown(VK_F8))
+        {
+            choice = 8;
+        }
+        else if (keyIsDown(VK_F9))
+        {
+            choice = 9;
+        }
+
+        //if (turn == 'X' && board[row][column] != 'X' && board[row][column] != 'O')
+        //{
+        //    //updating the position for 'X' symbol if
+        //    //it is not already occupied
+        //    board[row][column] = 'X';
+        //    turn = 'O';
+        //}
+        //else if (turn == 'O' && board[row][column] != 'X' && board[row][column] != 'O')
+        //{
+        //    //updating the position for 'O' symbol if
+        //    //it is not already occupied
+        //    board[row][column] = 'O';
+        //    turn = 'X';
+        //}
+        //else
+        //{
+        //    //if input position already filled
+        //    //cout << "Box already filled!n Please choose another!!nn";
+        //    player_turn();
+        //}
         /* Ends */
         //display_board();
 
-    textpixels::endFrame();                              // Needed always at end of game loop.
+
+
+    }
     while (!playerHasQuit);                                    // Only stop when playerHasQuit  
+    return;
 
 
 }
@@ -1433,7 +1521,7 @@ int main()
             break;
         case EASY:
                 /// Play Snake on easy
-
+            textpixels::startFrame();
 
                 while (gameover())
                 {
@@ -1457,7 +1545,7 @@ int main()
                 screen = MENU;
                 break;
 
-
+                textpixels::endFrame();                              // Needed always at end of game loop.
 
         case MEDIUM:
             /// Play Snake on medium
