@@ -1,4 +1,5 @@
 #include <iostream>
+#include <windows.h>
 using namespace std;
 
 
@@ -22,7 +23,7 @@ int showHomeMenuPrompt()
 {
     int choice = -1;
 
-    cout << " 1: Play against a foe\n 2: Play against Cortana\n  3: Check Scores\n 4: Take the cowards way out\n\n";
+    cout << " 1: Play against a foe\n 2: Play against Cortana\n 3: Check Scores\n 4: Take the cowards way out\n\n";
     cout << "\t Enter your Choice > ";
     cin >> choice;
     return choice;
@@ -42,6 +43,8 @@ int main()
 {
 
     int menuChoice = NO_CHOICE;
+    char player = 1, i, choice;
+    char mark;
 
 
     while (menuChoice != QUIT)      // Add check: player isnt broke
@@ -50,9 +53,72 @@ int main()
 
         if (menuChoice == PLAYVSPLAY)
         {
+            do
+            {
+                background();
+                player = (player % 2) ? 1 : 2;
 
 
+
+                cout << "\nif you want to surrender hit ESCAPE\n";
+                cout << "if you wanna instant rematch hit R\n";
+                cout << "Player " << player << ", enter the letter you want to place:  ";
+
+
+                cin >> choice;
+
+                mark = (player == 1) ? 'X' : 'O';
+
+                if (choice == 'q' && square[1] == 'q')
+                    square[1] = mark;
+                else if (choice == 'w' && square[2] == 'w')
+                    square[2] = mark;
+                else if (choice == 'e' && square[3] == 'e')
+                    square[3] = mark;
+                else if (choice == 'a' && square[4] == 'a')
+                    square[4] = mark;
+                else if (choice == 's' && square[5] == 's')
+                    square[5] = mark;
+                else if (choice == 'd' && square[6] == 'd')
+                    square[6] = mark;
+                else if (choice == 'z' && square[7] == 'z')
+                    square[7] = mark;
+                else if (choice == 'x' && square[8] == 'x')
+                    square[8] = mark;
+                else if (choice == 'c' && square[9] == 'c')
+                    square[9] = mark;
+                else if (choice == VK_ESCAPE)
+                    return(0);
+                else if (choice == 'r')
+                {
+                    system("cls");
+                    main();
+                }
+                else
+                {
+                    cout << "Thats not gonna work, Try Again";
+                    player--;
+                    cin.ignore();
+                    cin.get();
+                }
+                i = isWinner();
+
+                player++;
+            } 
+            while (i == -1);
+            background();
+            if (i == 1)
+
+                cout << "==>\aPlayer " << --player << " win ";
+            else
+                cout << "==>\aGame draw";
+
+            cin.ignore();
+            cin.get();
+            return 0;
         }
+
+    }
 
 
         if (menuChoice == PLAYVSCOM)
@@ -80,71 +146,8 @@ int main()
 
 
 
-    char player = 1, i, choice;
 
-    char mark;
-    do
-    {
-        background();
-        player = (player % 2) ? 1 : 2;
-
-        cout << "Player " << player << ", enter the letter you want to place:  ";
-
-        cin >> choice;
-
-        mark = (player == 1) ? 'X' : 'O';
-
-        if (choice == 'q' && square[1] == 'q')
-
-            square[1] = mark;
-        else if (choice == 'w' && square[2] == 'w')
-
-            square[2] = mark;
-        else if (choice == 'e' && square[3] == 'e')
-
-            square[3] = mark;
-        else if (choice == 'a' && square[4] == 'a')
-
-            square[4] = mark;
-        else if (choice == 's' && square[5] == 's')
-
-            square[5] = mark;
-        else if (choice == 'd' && square[6] == 'd')
-
-            square[6] = mark;
-        else if (choice == 'z' && square[7] == 'z')
-
-            square[7] = mark;
-        else if (choice == 'x' && square[8] == 'x')
-
-            square[8] = mark;
-        else if (choice == 'c' && square[9] == 'c')
-
-            square[9] = mark;
-        else
-        {
-
-            cout << "Thats not gonna work, Try Again";
-
-            player--;
-            cin.ignore();
-            cin.get();
-        }
-        i = isWinner();
-
-        player++;
-    } while (i == -1);
-    background();
-    if (i == 1)
-
-        cout << "==>\aPlayer " << --player << " win ";
-    else
-        cout << "==>\aGame draw";
-
-    cin.ignore();
-    cin.get();
-    return 0;
-}
+    
 
 /*********************************************
     FUNCTION TO RETURN GAME STATUS
