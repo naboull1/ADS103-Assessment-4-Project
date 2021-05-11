@@ -440,7 +440,7 @@ int showMenu()                                                                  
 
 
                                                                                                                              // key options for input
-        if (keyIsDown(VK_SPACE))
+        if (keyIsDown(VK_LEFT))
         {
             choice = EASY;
             //currentGameMode = 2;
@@ -919,8 +919,11 @@ void player_turn()
     do
     {
                         // starts Frame window to enable drawing
+        textpixels::startFrame();
         drawGameInterface();
         wallDraw();
+
+
 
 
 
@@ -1520,23 +1523,25 @@ int main()
             screen = showMenu();
             break;
         case EASY:
+
+            player_turn();
                 /// Play Snake on easy
-            textpixels::startFrame();
+            //textpixels::startFrame();
 
-                while (gameover())
-                {
+                //while (gameover())
+                //{        wallDraw();
 
-                    player_turn();
-                    gameover();
-                }
-                if (turn == 'X' && draw == false) {
-                    cout << "nnCongratulations!Player with 'X' has won the game";
-                }
-                else if (turn == 'O' && draw == false) {
-                    cout << "nnCongratulations!Player with 'O' has won the game";
-                }
-                else
-                    cout << "nnGAME DRAW!!!nn";
+                //    player_turn();
+                //    gameover();
+                //}
+                //if (turn == 'X' && draw == false) {
+                //    cout << "nnCongratulations!Player with 'X' has won the game";
+                //}
+                //else if (turn == 'O' && draw == false) {
+                //    cout << "nnCongratulations!Player with 'O' has won the game";
+                //}
+                //else
+                //    cout << "nnGAME DRAW!!!nn";
 
 
 
@@ -1545,7 +1550,7 @@ int main()
                 screen = MENU;
                 break;
 
-                textpixels::endFrame();                              // Needed always at end of game loop.
+                //textpixels::endFrame();                              // Needed always at end of game loop.
 
         case MEDIUM:
             /// Play Snake on medium
