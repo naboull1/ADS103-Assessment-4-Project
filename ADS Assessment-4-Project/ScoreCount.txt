@@ -1,8 +1,0 @@
-
-player 1  Gets 1 point
-player 1  Gets 1 point
-player 2  Gets 1 point
-player 1  Gets 1 point
-player 2  Gets 1 point
-player 1  Gets 1 point
-player 2  Gets 1 point

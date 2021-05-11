@@ -23,6 +23,7 @@ bool isValidChoice(int menuChoice)
     return (menuChoice > 0 && menuChoice < NO_CHOICE);
 }
 
+//Display menu and request input
 int showHomeMenuPrompt()
 {
     int choice = -1;
@@ -41,6 +42,7 @@ int showHomeMenuPrompt()
 //store characters for input
 char square[10] = { 'o','q','w','e','a','s','d','z','x','c' };
 
+//function to reset background board
 void resetArray()
 {
     square[0] = 'o';
@@ -75,6 +77,7 @@ int main()
     {
         menuChoice = showHomeMenuPrompt();  // Offer starting menu
 
+        //player vs player section
         if (menuChoice == PLAYVSPLAY)
         {
             do
@@ -105,6 +108,8 @@ int main()
                 //{
                 //    cout << "BTW your on the clock, tic tok, tic tok\n\n";
                 //}
+
+
 
 
 
@@ -220,6 +225,9 @@ int main()
     }
 }
 
+
+
+//winner calculation section
 int isWinner()
 {
     if (square[1] == square[2] && square[2] == square[3])
@@ -256,6 +264,7 @@ int isWinner()
 }
 
 
+//background display section
 void background()
 {
     system("cls");
