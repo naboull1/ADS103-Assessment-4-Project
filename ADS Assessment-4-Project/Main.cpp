@@ -1,5 +1,9 @@
 #include <iostream>
 #include <windows.h>
+#include <fstream>									//Library for File System control
+#include <chrono>									//Library for Time Control
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 
@@ -44,8 +48,10 @@ int main()
 
     int menuChoice = NO_CHOICE;
     char player = 1, i, choice;
+    int playerName = 1;
     char mark;
-
+    //int maxTime = 300;
+    //double time_spent = 0.0;
 
     while (menuChoice != QUIT)      // Add check: player isnt broke
     {
@@ -57,17 +63,32 @@ int main()
             {
                 background();
                 player = (player % 2) ? 1 : 2;
+                playerName = (player % 2) ? 1 : 2;
+                //start time 
+                // std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
 
-
-                cout << "\nif you want to surrender hit ESCAPE\n";
-                cout << "if you wanna instant rematch hit R\n";
-                cout << "Player " << player << ", enter the letter you want to place:  ";
+                cout << "BTW your on the clock, tic tok, tic tok\n\n";
+                cout << "\nif you want to surrender hit ESCAPE\n\n";
+                cout << "if you want instant rematch hit R\n\n";
+                cout << "Player " << playerName << ", enter the letter you want to place:  ";
 
 
                 cin >> choice;
 
+                //end time and output MS
+                //std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+                //cout << "Milliseconds = " << chrono::duration_cast<chrono::milliseconds>(end - begin).count() << "[ms]" << endl;
+
                 mark = (player == 1) ? 'X' : 'O';
+
+                //////cant get time working\\\\\\\\\
+                //if ((end.time_since_epoch() - begin.time_since_epoch()) == maxTime)
+                //{
+                //    cout << "BTW your on the clock, tic tok, tic tok\n\n";
+                //}
+
+
 
                 if (choice == 'q' && square[1] == 'q')
                     square[1] = mark;
@@ -98,18 +119,19 @@ int main()
                 {
                     cout << "Thats not gonna work, Try Again";
                     player--;
+                    playerName--;
                     cin.ignore();
                     cin.get();
                 }
                 i = isWinner();
 
                 player++;
-            } 
-            while (i == -1);
+                playerName++;
+            }             while (i == -1);
             background();
             if (i == 1)
 
-                cout << "==>\aPlayer " << --player << " win ";
+                cout << "==>\aPlayer " << --playerName << " win ";
             else
                 cout << "==>\aGame draw";
 
@@ -118,7 +140,7 @@ int main()
             return 0;
         }
 
-    }
+
 
 
         if (menuChoice == PLAYVSCOM)
@@ -140,6 +162,7 @@ int main()
             return 0;
         }
     }
+}
 
 
 
@@ -147,7 +170,7 @@ int main()
 
 
 
-    
+
 
 /*********************************************
     FUNCTION TO RETURN GAME STATUS
@@ -200,9 +223,9 @@ int isWinner()
 void background()
 {
     system("cls");
-    cout << "\n\n\tTic Tac Toe\n\n";
+    cout << "\n\n\tWELCOME TO EXTREME NOTS AND CROSSES\n\n";
 
-    cout << "Player 1 (X)  -  Player 2 (O)" << endl << endl;
+    cout << "PLAYER 1 IS X  -  PLAYER 2 IS 0 " << endl << endl;
     cout << endl;
 
     cout << "     |     |     " << endl;
@@ -224,3 +247,4 @@ void background()
 /*******************************************************************
                 END OF PROJECT
 ********************************************************************/
+
